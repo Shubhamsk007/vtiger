@@ -19,7 +19,7 @@ public class methoddraganddropby
 				WebElement source = driver.findElement(By.id("Draggable"));
 				Actions a =new Actions(driver);
 				a.dragAndDropBy(source, 2000, 3000);
-				SYstem.out.println("Hiiiiiiiiiiii"):
+				System.out.println("Hiiiiiiiiiiii"):
 				a.perform();
 	}
 }
