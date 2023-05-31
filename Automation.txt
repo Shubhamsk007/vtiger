@@ -1,0 +1,960 @@
+
+********************
+
+**** Automation Testing ********* Selenium
+getCurrent url
+
+4)	getpageSource()
+5)	getWindowHandle() return type String
+6)	getWindowHandles() --- multiple window 7)quit()
+8)close() 9)
+
+close - It just close the browser but run in background
+
+quit - It close the browser also remove from the background.
+
+
+****Date
+
+
+Manage Navigate
+
+
+driver control Switch to method getWindow HYR getWindowHandle()
+
+********************************************************************************************** Locators : ----->
+************************************************************************************************
+
+
+Manage : ---> Handle the things
+
+THree operations :
+
+1)	Manage the window related operation
+2)	time out related operation
+ 
+3)	cookies related operation
+
+
+Window related Operation	>
+position of the windows To maximize or minimize
+
+time out related ======> cookies related operation	>
+Maximize minimize full Screen
+
+
+Manage()
+
+1) maximize() 2)minimize() 3)full Screen() 4)getSize()
+5) SetSize() 6)getPosition() 7)setPosition()
+
+Web Driver Methods driver.manage().window().maximize() instead of window we can write
+**************************************************************************************
+
+
+public class test1
+{
+public static void main(String[] args)
+{
+
+ChromeDriver driver = new ChromeDriver(); driveer.manage().window().maximize(); driveer.manage().window().minimize(); driveer.manage().window().fullscreen(); driver.get("https://demo.actitime.com/login.do");
+}
+}
+
+
+**************4) getSize() ---> to get the height and width of the window
+public class Test1
+ 
+{
+public static void main(String[] args)
+{
+ChromeDriver driver = new ChromeDriver(); 
+driver.get("https://demo.actitime.com/login.do"); 
+Dimension ele = driver.manage().window().getSize(); 
+System.out.println(ele.getWidth());
+ System.out.println(ele.getHeight());
+}
+}
+
+***********************************************************************************************************
+
+
+setSize():
+to set the height and width of the window
+first create the object
+
+in the object we have to pass the value return type	dimension
+
+import from selenium package
+example:
+pakage Basic
+
+immport org.openqa.selenium.Dimension;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1
+{
+public static void main(String[] args)
+{
+ChromeDriver driver = new ChromeDriver(); driver.get("https://demo.actitime.com/login.do"); Dimension d = new Dimension(100,200); driver.manage().window().setSize(d);
+//System.out.println(ele.getWidth());
+//System.out.println(ele.getHeight());
+
+}
+}
+
+************************************************************************************** 
+getPosition() :
+  return type -- point
+ 
+|	x
+|
+|
+|
+| Y
+
+
+pakage Basic
+
+immport org.openqa.selenium.Dimension;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1
+{
+public static void main(String[] args)
+{
+ChromeDriver driver = new ChromeDriver(); driver.get("https://demo.actitime.com/login.do"); Point ele =driver.manage().window().getPosition(); System.out.println(ele.getX()); System.out.println(ele.getY());
+}
+}
+
+******************************************************************************** 
+setPosition() : - 
+return type ---- point
+
+pakage Basic
+
+immport org.openqa.selenium.Dimension; immport org.openqa.selenium.Point;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class Test1
+{
+public static void main(String[] args)
+{
+ChromeDriver driver = new ChromeDriver(); 
+Point p = new Point(200,400); 
+driver.get("https://demo.actitime.com/login.do"); 
+Point p = new Point(200,400);
+Point ele =driver.manage().window().setPosition(p);
+//System.out.println(ele.getX());
+//System.out.println(ele.getY());
+}
+}
+
+
+**************************************************************************************************************** 
+##   Navigate ():
+ it is used the provide browser history navigation ( direction of Your browser)
+also use to pass the url
+
+
+1) back()
+2)forward() 
+3)refresh() 
+4)to(String url)
+
+example:
+pakage Basic
+
+immport org.openqa.selenium.Dimension; immport org.openqa.selenium.Point;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1
+{
+public static void main(String[] args)
+{
+ChromeDriver driver = new ChromeDriver(); 
+driver.get("https://demo.actitime.com/login.do"); 
+driver.get("https://www.flipkart.com"); 
+driver.get("https://www.facebook.com"); 
+Tread.sleep(2000);
+driver.navigate().back();
+ Tread.sleep(2000); 
+driver.navigate().forward(); 
+Tread.sleep(2000);
+ driver.navigate().refresh();}}
+
+___________________________________________________________________________________________________________________________________________
+7/04/23
+
+
+/*/ html 
+1) search context  
+2) take screenshot
+3) webdriver
+4) java Script excetion.
+
+
+
+locator:
+priority list:    
+1) id
+2) name
+3) class
+4) tagname
+5)linklist
+6) partial linkedlist
+7) css
+8) xpath
+/////// id and anme is used for single element and find element...
+//// class and tag name is used fir multiple element and find element
+________________________________________________________________
+11/04/23
+
+
+loctor
+types
+1) id
+2) name
+3) class
+4) tagname
+5)linklist
+6) partial linkedlist
+7) css
+8) xpath
+
+
+4) tagname: 
+// stand by child or current child.
+most of time it will give u duplicates.
+
+example: package basic;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class test5 {
+
+	public static void main(String[] args)
+	{
+		System.setProperty("webdriver.chromedriver", "./Drivers/chromedriver.exe");
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demo.actitime.com/login.do");
+		driver.findElement(By.tagName("a")).click();
+
+	}
+
+}
+___________________________________________
+8) Xpath loctor: 
+
+use to search trageted  path
+there is two type 
+a) Absolute : (/)
+b)relative xpath:(//)
+it is short path 95% relative path is used  and it going write from child 6+
+
+
+A) absolute xpath(/):  going to write from root(html) of document  and it have  large path(lengthy)
+inspect(grocery): search== html/body/div
+                            -open it second line div id close it 
+               -open div only one div
+_____________________________________________________________________________________________
+12/04/23
+
+/*/  html
+      |
+      body :
+        |
+        |----1) div [1] :   input A[1]
+        |                   input B[2]
+        |----2) div [2] :-----------   input C[1]
+                                       input D[2]
+
+     /*/  absoultepath for 1[1]:  html/body/div[1]/input[1]
+    /*/    absoultepath for 1[2]:  html/body/div[1]/input[2]
+   /*/      absoultepath for 2[1]:  html/body/div[2]/input[1]
+  /*/        absoultepath for 2[2]:  html/body/div[2]/input[2]
+
+
+if we want to print both  expression 
+absoultepath for both of div[1]     :  html/body/div[1]/input      /*/ AB
+absoultepath for both of div[2]     :  html/body/div[2]/input     /*/ CD
+absoultepath for both of div {AC}   :  html/body/div/input[1]    /*/ AC
+absoultepath for both of div {CD}   :  html/body/div/input[2]   /*/ BD
+absoultepath for both of div {ABCD} :  html/body/div/input     /*/ ABCD
+absoultepath both of div {AC}:html/body/div[1]/input[1]| html/body/div[2]/input[2]  /*/AD
+absoultepath both of div {BD}:html/body/div[1]/input[2]| html/body/div[2]/input[1]  /*/BC
+
+
+expression for text 
+example filkart.com -grocery (text)
+1)grocery (text):html/body/div/div/div[2]/div/div/div[1]/a/div[2]
+
+2)applicances img : html/body/div/div/div[2]/div/div/div[6]/a/div[1]/div/img
+              text: html/body/div/div/div[2]/div/div/div[6]/a/div[2]
+3)moblies:  text:html/body/div/div/div[2]/div/div/div[2]/a/div[2]
+4) fashion:  text:html/body/div/div/div[2]/div/div/div[3]/a/div[2]
+5)electronices:  text:html/body/div/div/div[2]/div/div/div[4]/a/div[2]
+6)home:  text:html/body/div/div/div[2]/div/div/div[5]/a/div[2]
+7)travels: text:html/body/div/div/div[2]/div/div/div[7]/a/div[2]
+8) top offers:  text:html/body/div/div/div[2]/div/div/div[8]/a/div[2]
+9) beauty :  text:html/body/div/div/div[2]/div/div/div[9]/a/div[2]
+_______________________________________________________________________
+17/04/23
+sytnax: //tagname[text()='text value']
+       //tagname[@shubham Name='shubham']
+
+
+     //div[text()='Fashion']
+    //div[text()='Beauty']
+___________________________________________________________________________
+18/04/23
+
+ Absolute:   
+/*/  html
+      |
+      body :
+        |
+        |----1) div [1] :   input A[1]
+        |                   input B[2]
+        |----2) div [2] :-----------   input C[1]
+                                       input D[2]
+
+
+/*/  realtive xpath:
+
+    //input                               /*/ A,B,C,D.
+    //div[1]/input[1]//div[2]/input[2]   /*/ AD
+  
+ flipkart.com:
+ example   : //div[2]/a/div[1]/div/img  /*/ for Moblies.( relative xpath)
+   1) grocery
+     html/body/div/div/div[2]/div/div/div[1]/a/div[1]/div/img
+   2) Moblies.
+    //html/body/div/div/div[2]/div/div/div[2]/a/div[1]/div/img  (absolute xpath)
+   3) fashion:
+   //html/body/div/div/div[2]/div/div/div[3]/a/div[1]/div/img
+   4) Electronics :
+    html/body/div/div/div[2]/div/div/div[4]/a/div[1]/div/img
+   5)Homes:
+    html/body/div/div/div[2]/div/div/div[5]/a/div[1]/div/img
+   6) Applicanes:
+   html/body/div/div/div[2]/div/div/div[6]/a/div[1]/div/img
+   7) TRavels:
+    html/body/div/div/div[2]/div/div/div[7]/a/div[1]/div/img
+   8) top offers:
+     html/body/div/div/div[2]/div/div/div[8]/a/div[1]/div/img
+   9) toys :
+     html/body/div/div/div[2]/div/div/div[9]/a/div[1]/div/img
+   10) two wheelers:
+     html/body/div/div/div[2]/div/div/div[10]/a/div[1]/div/img
+***** co realtive drawback
+  /*/ if me change or remove some keyword from it we have to change all he code(xpath)
+ /*/  when we have dupplicate then xpath is not working .
+ /*/ we have to pass complete alt value in it.
+
+********xpath by text:
+               sytnax: //tagname[text()='text value']
+               /*/supoort as linktext and text aslways as
+              /*/ case sencitive 
+             /*/ 
+********xpath by conatains Alt:
+           //input[contains(@placeholder,'Username')] /*/ https://www.naukri.com/
+          // 
+        
+_______________________________________________________________________________________________
+
+19/04/23
+xpath by contains :
+sytnax:  //tagname[Contains(@Attributename partial Attribute value)]
+        //tagname[contains(test(),'partialtext value')]
+      example : //div[contains(text(),'Login')] /*/ https://demo.actitime.com/login.do.
+                //div[contains(text(),'Appliances')]  /*/ https://www.flipkart.com/.
+
+drawback of xpath by contains : trageted element having complete  dymanic then xpath by contains not going to support.
+
+find independent and depenedent xpath.  
+ Steps: 
+  1. identify which is fixed and dynamic 
+  2.  write xpath for fixed elments
+  3. update the xpath by backward travilling to find common point between Dynamic elements and  Find elements
+  4.update xpath by using Xpath for dynamic elemnts.
+
+exmaple : 
+A)  https://www.irctc.com/contact.html
+  ** ( for phonenumber)
+1.  check which id fixed and which is dynamic ND Xpath for fixed and Dynamic
+2.  //td[text()='Buddhiest train']
+3.  check it is covering the fixed and dymanic elements ( //td[text()='Buddhist train']/..) 
+       (/.. : is used to perform to go  backward direction)
+4.  //td[text()='Buddhist train']/..//td[@data-title="helpline"] /*/ if we update phoneno the also is showing 1 only
+
+  ** mailid example : 
+    2.//td[text()='Buddhist train']
+    3. //td[text()='Buddhist train']/..
+    4. //td[text()='Buddhist train']/..//td[@data-title="mail"]
+
+
+B)https://www.flipkart.com/:
+//div[text()='realme C33 2023 (Night Sea, 64 GB)']
+//div[text()='realme C33 2023 (Night Sea, 64 GB)']/../..
+//div[text()='realme C33 2023 (Night Sea, 64 GB)']/../..//div[@class='_30jeq3 _1_WHN1']
+
+/*/ what is drawback of independent and depenedent:
+     - when we having targeted element is dynamic  then we can use independent and depenedent xpath
+     - when we having fixed element having duplicate then we cannot use independent and depenedent xpath(fixed path go throw using xpath by group index)
+     - 
+
+xpath by group index :
+ sytnax: (xpath)[indiax value]
+  example ://div[text()='realme 9 (Stargaze White, 128 GB)'][1]
+
+
+exmaple of independent and depenedent xpath on dupliate fixed elemnt:
+   //div[text()='realme 9 (Stargaze White, 128 GB)'][1]
+ //div[text()='realme 9 (Stargaze White, 128 GB)'][1]/../..
+ //div[text()='realme 9 (Stargaze White, 128 GB)'][1]/../..//div[@class='30jeq3 _1_WHN1]
+
+
+assgiment:  
+            1. phone 14 pro :
+                                 
+                                     //div[text()='APPLE iPhone 14 Pro (Space Black, 128 GB)']
+                                    //div[text()='APPLE iPhone 14 Pro (Space Black, 128 GB)']/../..
+                                   //div[text()='APPLE iPhone 14 Pro (Space Black, 128 GB)']/../..//div[@class="_30jeq3 _16Jk6d"]
+            2. 2-Galaxy S23 Ultra 5G
+                                 //div[text()='SAMSUNG Galaxy S23 Ultra 5G (Phantom Black, 512 GB)']
+                                //div[text()='SAMSUNG Galaxy S23 Ultra 5G (Phantom Black, 512 GB)']/../..
+                               //div[text()='SAMSUNG Galaxy S23 Ultra 5G (Phantom Black, 512 GB)']/../..//div[@class='_30jeq3 _1_WHN1']
+            3. 3-Google Pixel 7
+                             //div[text()='Google Pixel 7 (Obsidian, 128 GB)']
+                            //div[text()='Google Pixel 7 (Obsidian, 128 GB)']/../..
+                           //div[text()='Google Pixel 7 (Obsidian, 128 GB)']/../..//div[@class='_30jeq3 _1_WHN1']
+_____________________________________________________
+
+20/04/23
+
+******Xpath by Axes:
+   1. Child 
+   2.  parant
+   3.following Axes
+   4. preceding axes
+   5. Ancesthr 
+   6. following sibling
+   7. preceding sibling
+Sytnax:  Findelement/ axisname
+           Tagname/
+
+
+************Web Elements:  it is interface , which  has 14 methods
+    methods:
+            1. click()
+            2. clear()
+            3. sendkeys():
+                   -keys
+                   -Duration
+                   -Timeunits
+            4. getetext()
+            5. getAttribute();
+            6. getsize()
+            7. get location()
+            8. get Rect()
+            9. get cssvalue()
+            10. isEnable()
+            11. is Selected()
+            12. is displayed()
+            13. Submit()
+            14. gettagname()
+           
+1. click();
+exmaple:
+package basic;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class test11 {
+
+	public static void main(String[] args) throws InterruptedException
+	{
+			System.setProperty("webdriver.chromedriver", "./Drivers/chromedriver.exe");
+			WebDriver driver =new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.get("https://www.google.com/doodles");
+			Thread.sleep(2000);
+			driver.findElement(By.linkText(" Sanda Bunsidth's 104th Birthday")).click();
+	}
+}
+______________________
+2.  clear() method:
+ example of id and clear method:
+           
+package basic;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class test11 {
+
+	public static void main(String[] args) throws InterruptedException
+	{
+			System.setProperty("webdriver.chromedriver", "./Drivers/chromedriver.exe");
+			WebDriver driver =new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.get("https://demo.vtiger.com/vtigercrm");
+			Thread.sleep(2000);
+			driver.findElement(By.id("username")).clear();
+	}
+}
+_______________________________
+ 3.sendkeys methods:
+exmale:
+package basic;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class test11 {
+
+	public static void main(String[] args) throws InterruptedException
+	{
+			System.setProperty("webdriver.chromedriver", "./Drivers/chromedriver.exe");
+			WebDriver driver =new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.get("https://demo.vtiger.com/vtigercrm");
+			Thread.sleep(2000);
+			driver.findElement(By.id("username")).clear();
+			driver.findElement(By.id("username")).sendKeys("pune");
+	}
+}
+______________OR_____________ by writing 10 times same line it is easy to wrtite just one line 
+
+	public static void main(String[] args) throws InterruptedException
+	{
+			System.setProperty("webdriver.chromedriver", "./Drivers/chromedriver.exe");
+			WebDriver driver =new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.get("https://demo.vtiger.com/vtigercrm");
+			Thread.sleep(2000);
+			driver.findElement(By.id("username")).clear();
+		      WebElement ele=driver.findElement(By.id("username"));
+			ele.clear();
+			ele.sendKeys("pune");
+	}
+}
+  keys: driver.findElement(By.id("username")).sendKeys(keys.pune);
+____________________ another example of by writing 10 times same line it is easy to wrtite just one line 
+
+public class shortcutkeys
+{
+
+	public static void main(String[] args) throws InterruptedException
+	{
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demo.actitime.com/login.do");
+		WebElement ele=driver.findElement(By.id("username"));
+			ele.sendKeys("pune");
+			Thread.sleep(2000);
+			ele.sendKeys(Keys.CONTROL+"a");
+			Thread.sleep(2000);
+			ele.sendKeys(Keys.CONTROL+"c");
+			Thread.sleep(2000);
+			driver.findElement(By.name("pswd")).sendKeys(Keys.CONTROL+"v");
+	
+
+______________________________________________________________________________________________________
+ 
+ 21/04/23:
+
+4.getAttribute:  what Attribute name is passing u will get holding Attribute value
+
+steps : search for trageted elements 
+        then perform actions
+example: 
+  public class shortcutkeys
+{
+
+	public static void main(String[] args) throws InterruptedException
+	{
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demo.actitime.com/login.do");
+		driver.findElement(By.xpath("//div[text()='login ']")).sendKeys(Keys.ENTER);
+		String ele=driver.findElement(By.id("username")).getAttribute("placeholder");
+		System.out.println(ele);
+	}
+}
+
+________________________________________________________________________________________________
+28/04/23
+
+1) what is Explict wait?
+-
+condition  -----  is condition satisfied ----- is the time delay over ------  wait for 500 mils seconds
+     or                    |                               |
+predicaters                |                               |
+                  The contol will be              timeoutexception 
+                  related to realsie to           with apropecate
+                   nextline of code.                message.
+                 
+
+example:
+   public class abc
+{
+	public static void main(String[] args) throws InterruptedException
+	{
+			WebDriver driver =new ChromeDriver();
+			driver.get("https://demo.actitime.com/login.do");
+			driver.findElements(By.id("username")).sendkeys("admin");
+			driver.findElement(By.name("pswd")).sendKeys("manager");
+			driver.findElement(By.id("loginbutton")).click();
+               String expectedurl ="https://demo.actitime.com/login.do";
+                  String actualurl=driver.getcurrenturl();
+			String ele=driver.getCurrentUrl();
+
+                             if(	expectedurl.equal(actualurl))		
+	                             {
+                                    System.out.println("true");
+                                    }
+                                          else
+                                       	  {
+                                               System.out.println("false");
+                                               }
+                                                    System.out.println(actualurl);
+   }}
+________________________________________________________________________
+	29/04/23
+
+/*/ explict wait is used to replace the thread.sleep.
+  wait.util(Expecetedcondtion.urlToBe(Expectedurl1))
+	going to wait until the time is wait  
+
+//*/ HOW TAKE SCREENSHOT:
+
+1) import java.io.File;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class test2 
+{
+		public static <TakeScreenShot> void main(String[] args)
+		{
+			WebDriver driver=new ChromeDriver();
+			driver.get("https://demo.actitime.com/login.do");
+			TakeScreenShot ts =(TakeScreenShot) driver;
+			File tempfile=ts.getScreenshotAs(OuputType.FILE );
+                File destfile= new File(" ./images/pune.png");
+			tempfile.renameTo(destfile);}}
+
+2) 
+  import java.io.File;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TakeScreenshot2 {
+
+	public static <TakesScreenShot> void main(String[] args)
+	{
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("https://demo.actitime.com/login.do");
+		TakesScreenShot ts =(TakesScreenShot) driver;
+		File tempfile=((TakesScreenshot) ts).getScreenshotAs(OutputType.FILE );
+		File destinationfile= new File(" ./images/pune.png");
+            FileUtils.copyFile(tempfile, destfile);}}
+
+assgiment of  take screenshot of 5 webpage 
+
+
+
+__________________________________________________________________________________________
+2/05/23
+
+
+1) example of localdatetime: for taking Screenshot with adding in name .-
+public class TakeScreenshot2 {
+
+	public static <TakesScreenShot> void main(String[] args) throws IOException
+	{
+		LocalDateTime ldt=LocalDateTime.now();
+		String timestramp=ldt.toString().replace(":","-");
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("https://www.jio.com/");
+		TakesScreenShot ts =(TakesScreenShot) driver;
+		File tempfile=((TakesScreenshot) ts).getScreenshotAs(OutputType.FILE );
+		File destfile= new File(" ./images/pune"+timestramp+".png");
+		tempfile.renameTo(destfile);
+        FileUtils.copyFile(tempfile, destfile);}}
+
+ 2) wenelement Screenshot program: for single element 
+
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class webelementScreenshot 
+{
+
+	public static void main(String[] args) throws IOException
+	{
+		LocalDateTime ldt=LocalDateTime.now();
+		String timestramp=ldt.toString().replace(":","-");
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("https://demo.actitime.com/login.do");
+		WebElement ts=	driver.findElement(By.id("keepLoggedInCheckBox"));
+		File tempfile = ts.getScreenshotAs(OutputType.FILE);
+		File destfile =new File(" ./image/vimannagar.png");
+	    FileUtils.copyFile(tempfile, destfile);}}
+	______________
+assgimnet of 5 screenshot of webelement 
+		1)loginButton	
+public class webelementScreenshot1
+{
+
+	public static void main(String[] args) throws IOException
+	{
+		LocalDateTime ldt=LocalDateTime.now();
+		String timestramp=ldt.toString().replace(":","-");
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("https://demo.actitime.com/login.do");
+		WebElement ts=	driver.findElement(By.id("loginButton"));
+		File tempfile = ts.getScreenshotAs(OutputType.FILE);
+		File destfile =new File(" ./image/vimannagar.png");
+	    FileUtils.copyFile(tempfile, destfile);}}
+
+---___________________________________________________________________
+04/05/23:
+/*/ Dropdown:
+methd:
+* selectbyvalue.
+* getfirstselectedoption
+* gettext
+* selectbyindex
+*  
+*
+
+
+
+/*/ Action class:
+methods:  
+         1) moveToElement(webelementtraget)
+         2) contextclick();
+
+
+
+
+
+
+steps
+      1) create object of actions Actions s=new Actions();
+      2) in actions construction going to pause argments webdriver referes  
+              Action a =new Action(driver);
+      3) both refernecs variable call non static method a click()
+      4) call a perform();
+__________________________________________
+1) moveToElement(webelementtraget):
+
+example: 1)  fashion 
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class test1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://www.flipkart.com/");
+		driver.findElement(By.xpath("//button[@class='_2KpZ6l _3dESVI']")).click();
+		WebElement fashion=driver.findElement(By.xpath("//div[text()='Fashion']"));
+	    Actions a =new Actions(driver);
+	    a.moveToElement(fashion);
+
+
+ 2) contextclick(webElementtraget );
+example:
+              import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Action 
+{
+
+	public static void main(String[] args)
+	{
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+		WebElement button=driver.findElement(By.xpath("//span[text()='right click me']"));
+		  Actions a =new Actions(driver);
+		    a.contextClick(button);
+		    a.perform();	}}
+3.contextclick():
+example:
+     import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Action 
+{
+
+	public static void main(String[] args)
+	{
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+		WebElement button=driver.findElement(By.xpath("//span[text()='right click me']"));
+		  Actions a =new Actions(driver);
+		    a.contextClick();
+		    a.perform();	    
+4. doubleclick():
+example:
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class doubleclick {
+
+	public static void main(String[] args) {
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+		WebElement button=driver.findElement(By.xpath("//button[text()='Double-Click Me To See Alert']"));
+
+		 Actions a =new Actions(driver);
+		    a.doubleClick();
+		    a.perform();	
+
+doubleclick(withtRAGEDEELEMENT):
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class doubleclick {
+
+	public static void main(String[] args) {
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+		WebElement button=driver.findElement(By.xpath("//button[text()='Double-Click Me To See Alert']"));
+
+		 Actions a =new Actions(driver);
+		    a.doubleClick();
+		    a.perform();	
+
+6.clickingwithouttragetedElement():
+example:import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class clickingwithouttarghedelement {
+
+	public static void main(String[] args) {
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://letcode.in/test");
+		WebElement button=driver.findElement(By.linkText("edit"));
+		 Actions a =new Actions(driver);
+		    a.click();
+		    a.perform();	
+		    }
+
+7.clickingwithtragetedElement();
+
+________________________________________________________________________________
+10/05/23
+
+/*/ what is POPUP:
+        it is grapical window comes on top of the window called popup.
+
+1) javaScricpt popup.
+2) hidden rivision popup.
+3) file oploaded popup.
+4) file downloaded popup.
+5) notification popup.
+6) Authincation popup.
+
+completed selenium is depend upon source code.
+
+How to handle POPUP.
+
+1) JAVASCRICPT POPUP: it is blocker popup we not giving any repsonse to popup we cant proform any action on webpage.
+
+   a) alert : having ok/cancel button
+   b) confirmation:  having ok/cancel button
+   c) prompt: having ok/cancel button and one textfield
+
+
+example:
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class javaScriptpopup 
+{
+	public static void main(String[] args) throws InterruptedException 
+	{
+		WebDriver driver =new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+		driver.get("https://letcode.in/test");
+		driver.findElement(By.linkText("Dialog")).click();
+		driver.findElement(By.id("accept")).click();
+           Thread.sleep(2000);
+		driver.switchTo().alert().accept();}}
+
+
+
+
+
+
+
+
+
+
+
+
+
